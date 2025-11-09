@@ -1,0 +1,58 @@
+<?page title="Add Beneficiary" contentType="text/html;charset=UTF-8"?>
+<zk xmlns:n="native">
+    <window title="Add Beneficiary" border="normal" width="70%"
+            apply="com.fintrust.controller.AddBeneficiaryController">
+
+        <vlayout spacing="10px" style="padding:15px">
+            <grid>
+                <rows>
+                    <row>
+                        <label value="Account Number:"/>
+                        <textbox id="accBox" width="250px" placeholder="Enter Account Number"/>
+                    </row>
+                    <row>
+                        <label value="IFSC Code:"/>
+                        <textbox id="ifscBox" width="250px" placeholder="Enter IFSC press Enter"/>
+                    </row>
+                    <row>
+                        <label value="Name:"/>
+                        <textbox id="nameBox" width="250px" readonly="true"/>
+                    </row>
+                    <row>
+                        <label value="Bank Name:"/>
+                        <textbox id="bankBox" width="250px" readonly="true"/>
+                    </row>
+                    <row>
+                        <label value="Email:"/>
+                        <textbox id="emailBox" width="250px" readonly="true"/>
+                    </row>
+                    <row>
+                        <label value="Mobile:"/>
+                        <textbox id="mobileBox" width="250px" readonly="true"/>
+                    </row>
+                    <row>
+                        <button id="addBtn" label="Add Beneficiary"
+                                width="200px"
+                                style="color:white;background-color:green;font-weight:bold;"/>
+                    </row>
+                </rows>
+            </grid>
+
+            <separator bar="true"/>
+
+            <label value="Beneficiary List:" style="font-weight:bold;font-size:16px;"/>
+
+            <listbox id="beneficiaryList" width="100%" mold="paging" pageSize="4" height="250px">
+                <listhead>
+                    <listheader label="Name"/>
+                    <listheader label="Account No"/>
+                    <listheader label="Bank"/>
+                    <listheader label="IFSC"/>
+                    <listheader label="Email"/>
+                    <listheader label="Mobile"/>
+                </listhead>
+            </listbox>
+        </vlayout>
+    </window>
+</zk>
+

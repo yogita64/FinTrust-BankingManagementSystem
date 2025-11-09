@@ -122,7 +122,7 @@ public class UserCRUD {
                 full_name VARCHAR(100),
                 role ENUM('ADMIN', 'EMPLOYEE', 'CUSTOMER') DEFAULT 'CUSTOMER',
                 is_active BOOLEAN DEFAULT TRUE,
-                created_at DATETIME DEFAULT NOW(),
+                created_at DATETIME DEFW(),
                 last_login DATETIME NULL
             )
         """;
