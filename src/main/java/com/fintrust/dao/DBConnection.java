@@ -2,37 +2,31 @@ package com.fintrust.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class DBConnection {
-	private static Connection conn = null;
-	
-	private static final String DBNAME = "mydb";
-	private static final String URL = "jdbc:mysql://localhost:3306/" + DBNAME;
-	private static final String USERNAME = "root";
-	private static final String PASSWORD = "root123"; 
-	
-	
-	
-    // Get a single shared connection (basic implementation)
-    public static Connection getConnection() {
-        if (conn == null) {
-            try {
-                // Load the MySQL JDBC driver
-                Class.forName("com.mysql.cj.jdbc.Driver");
 
-                
+    private static final String DBNAME = "mydb";
+    private static final String URL = 
+        "jdbc:mysql://localhost:3306/" + DBNAME;
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "root123";
 
-                conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-                System.out.println(" Database connected successfully!");
-            } catch (Exception e) {
-                e.printStackTrace();
-                System.out.println(" Database connection failed!");
-            }
-        }
-        return conn;
-    }
     
-    public static void main(String args[]) {
-    	getConnection();
+    public static Connection getConnection() {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            System.out.println("Database connected successfully!");
+            return conn;
+        } catch (ClassNotFoundException e) {
+            System.out.println(" JDBC Driver not found: " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        } catch (SQLException e) {
+            System.out.println("Database connection failed: " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
     }
 }

@@ -1,27 +1,19 @@
 package com.fintrust.model;
 
-
-
 public class BeneficiaryModel {
+    private int beneficiaryId;
+    private int userId;
     private String name;
     private String accountNumber;
     private String bankName;
     private String ifscCode;
-    private String email;
-    private String mobile;
 
-    public BeneficiaryModel() {}
+    public int getBeneficiaryId() { return beneficiaryId; }
+    public void setBeneficiaryId(int beneficiaryId) { this.beneficiaryId = beneficiaryId; }
 
-    public BeneficiaryModel(String name, String accountNumber, String bankName, String ifscCode, String email, String mobile) {
-        this.name = name;
-        this.accountNumber = accountNumber;
-        this.bankName = bankName;
-        this.ifscCode = ifscCode;
-        this.email = email;
-        this.mobile = mobile;
-    }
+    public int getUserId() { return userId; }
+    public void setUserId(int userId) { this.userId = userId; }
 
-    // Getters & Setters
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 
@@ -34,9 +26,9 @@ public class BeneficiaryModel {
     public String getIfscCode() { return ifscCode; }
     public void setIfscCode(String ifscCode) { this.ifscCode = ifscCode; }
 
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
-
-    public String getMobile() { return mobile; }
-    public void setMobile(String mobile) { this.mobile = mobile; }
+    @Override
+    public String toString() {
+        return name + " (" + bankName + ")";
+    }
 }
+
