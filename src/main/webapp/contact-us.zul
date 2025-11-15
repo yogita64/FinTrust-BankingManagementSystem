@@ -6,8 +6,8 @@
 
 		.help{ font-weight: bold; }
 
-	    .support-page .container { display: flex;
-		gap: 20px; padding: 16px; }
+		.support-page .container { display: flex; gap: 20px; padding:
+		16px; }
 
 		.support-page .main-form { flex: 2; min-width: 280px; }
 
@@ -26,7 +26,7 @@
 	</style>
 
 	<window title="Contact Support" border="normal" width="100%"
-		height="100%">
+		height="100%" apply="com.fintrust.controller.ContactController">
 		<div class="container">
 			<div class="main-form">
 				<label sclass="help">Contact Support</label>
@@ -85,9 +85,20 @@
 						</row>
 						<row>
 							<label value="Attachments" />
-							<button label="Upload" 
-								onClick="Fileupload.get(5)" />
+							<button label="Upload" upload="true"
+								id="fileUpload" />
 						</row>
+
+						<row>
+							<label value="Uploaded Files" />
+							<listbox id="fileList" width="300px">
+								<listhead>
+									<listheader label="File Name" />
+									<listheader label="Action" />
+								</listhead>
+							</listbox>
+						</row>
+
 						<row>
 							<label value="Preferred Contact Method" />
 							<combobox id="preferredContactMethod" />
@@ -148,11 +159,11 @@
 				<!-- <div class="card"> <label>Emergency</label> <label><a href="/report-card-loss.zul">Report 
 					Lost Card</a></label> <label><a href="/fraud-hotline.zul">Report Fraud</a></label> 
 					</div> -->
-					<space></space>
+				<space></space>
 				<div class="card">
 					<label>Track Ticket</label>
-					<textbox placeholder="Enter ticket #" id="trackId" />
-					<button label="Track" />
+					<textbox placeholder="Enter ticket #"   id="trackId"/>
+					<button label="Track" id="trackBtn" />
 				</div>
 			</div>
 		</div>
